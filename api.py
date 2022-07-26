@@ -2,14 +2,14 @@ import uvicorn
 from fastapi import FastAPI
 import joblib
 
-classifier = joblib.load(open("sentiment_classifer.pkl","rb"))
-vectorizer = joblib.load(open("countvectorizer.pkl","rb"))
+classifier = joblib.load(open("./model/sentiment_classifer.pkl","rb"))
+vectorizer = joblib.load(open("./model/countvectorizer.pkl","rb"))
 
 app = FastAPI()
 
 @app.get('/')
 async def index():
-  return {"text":'Sentiment Analysis on Tweets'}
+  return {"text":'Sentiment Analysis on Text'}
 
 
 @app.post('/classify')
