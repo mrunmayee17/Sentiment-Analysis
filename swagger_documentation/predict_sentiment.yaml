@@ -2,7 +2,7 @@ openapi: 3.0.0
 servers:
   # Added by API Auto Mocking Plugin
   - description: SwaggerHub API Auto Mocking
-    url: https://virtserver.swaggerhub.com/MRUNMAYEERANE17/test_1/1.0.0
+    url: https://virtserver.swaggerhub.com/MRUNMAYEERANE17/test/1.0.0
 info:
   description: Binary classification of sentiment in a given text using count vectorizer and logistic regression
   version: "1.0.0"
@@ -23,6 +23,12 @@ paths:
       summary: homepage
       description: prints Predict the sentiment of the text!
       operationId: UI
+      # produces:
+      # - "application/json"
+      # - "application/xml"
+      # consumes:
+      # - "application/json"
+      # - "application/xml"
       responses:
         '200':
           description: "Successfull Response"
@@ -75,5 +81,3 @@ components:
         item:
           type: "string"
           example: "Had wonderful experience with this airlines!"
-    
-      
