@@ -15,7 +15,7 @@ async def index():
 
 
 @app.post('/classify')
-def classify(data:str):
+def classify(data : str):
     result = classifier.predict_proba(vectorizer.transform([data]).toarray())[0][1]
     # print(result)
     if result > 0.5:

@@ -1,0 +1,79 @@
+openapi: 3.0.0
+servers:
+  # Added by API Auto Mocking Plugin
+  - description: SwaggerHub API Auto Mocking
+    url: https://virtserver.swaggerhub.com/MRUNMAYEERANE17/test_1/1.0.0
+info:
+  description: Binary classification of sentiment in a given text using count vectorizer and logistic regression
+  version: "1.0.0"
+  title: Sentiment Analysis API
+  contact:
+    email: mrun@rane.com
+  license:
+    name: Apache 2.0
+    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
+tags:
+  - name: sentiment_classification
+    description: Finds sentiment of the text
+paths:
+  /sentiment:
+    get:
+      tags:
+        - sentiment_classification
+      summary: homepage
+      description: prints Predict the sentiment of the text!
+      operationId: UI
+      responses:
+        '200':
+          description: "Successfull Response"
+          content:
+            application/json:
+              schema: 
+                $ref: '#/components/schemas/predict'
+  /classify:
+    post:
+      tags:
+        - sentiment_classification
+      summary: sentiment classification
+      description: predicting sentiment of the text
+      operationId: finds sentiment of the text
+      parameters:
+        - in: query
+          name: Text 
+          description: Enter text for predicting sentiment!
+          content:
+            application/json:
+              schema: 
+                $ref: '#/components/schemas/input'
+          required: false
+          
+      responses:
+        '200':
+          description: " Success!"
+          content:
+            application/json:
+              schema: 
+                $ref: '#/components/schemas/output'
+  
+components:
+  schemas:
+    output:
+     type: "object"
+     properties:
+        item:
+          type: "string"
+          example: "The sentiment of the text is Positive!"
+    predict:
+      type: "object"
+      properties:
+        item:
+          type: "string"
+          example: "Predict the sentiment of the text!"
+    input:
+      type: "object"
+      properties:
+        item:
+          type: "string"
+          example: "Had wonderful experience with this airlines!"
+    
+      
